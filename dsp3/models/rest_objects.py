@@ -1,10 +1,10 @@
-from datetime import datetime, timezone
+from datetime import datetime
 import requests
 import json
 
 class TimeRange:
     #TODO: need to handle defualt paramaters and the call to timestamp()
-    def __init__(self, end: datetime = 0, start: datetime = 0):
+    def __init__(self, end = 0, start = 0):
         self.end = end
         self.start = start
 
@@ -14,7 +14,7 @@ class TimeRange:
 
 class PropertyFilter:
 
-    def __init__(self, file_name: str, host_name: str):
+    def __init__(self, file_name, host_name):
         self.file_name = file_name
         self.host_name = host_name
 
@@ -31,7 +31,7 @@ class Scope:
     timeRange	    TimeRange	    Yes		    The time range with which to limit the query.
 
     """
-    def __init__(self, filter:PropertyFilter, time_range: TimeRange, host_group_id = 0, smart_folder_id = None):
+    def __init__(self, filter, time_range, host_group_id = 0, smart_folder_id = None):
         self.filter = filter
         self.time_range = time_range
         self.host_group_id = host_group_id

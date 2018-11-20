@@ -15,7 +15,7 @@ class UsageUtils:
         self.api_url = self.config.rest_url() + "monitoring/usages"
         self.headers = {'Accept': 'application/json'}
 
-    def jvm_usage(self, sessionID:str, manager_node_id: str, from_date: datetime, to_date: datetime, verify_ssl:bool = False) -> Dict[str, str]:
+    def jvm_usage(self, sessionID, manager_node_id, from_date, to_date, verify_ssl = False):
         params = {'sID': sessionID }
 
         if len(manager_node_id) > 0: params['managerNodeID'] = manager_node_id

@@ -4,7 +4,7 @@ import json
 
 class TimeRange:
     #TODO: need to handle defualt paramaters and the call to timestamp()
-    def __init__(self, end: datetime = 0, start: datetime = 0):
+    def __init__(self, end = 0, start = 0):
         self.end = end
         self.start = start
 
@@ -14,7 +14,7 @@ class TimeRange:
 
 class PropertyFilter:
 
-    def __init__(self, file_name: str, host_name: str):
+    def __init__(self, file_name, host_name):
         self.file_name = file_name
         self.host_name = host_name
 
@@ -23,7 +23,7 @@ class PropertyFilter:
 
 
 class Scope:
-    def __init__(self, filter:PropertyFilter, time_range: TimeRange, host_group_id = 0, smart_folder_id = None):
+    def __init__(self, filter, time_range, host_group_id = 0, smart_folder_id = None):
         self.filter = filter
         self.time_range = time_range
         self.host_group_id = host_group_id
@@ -35,7 +35,7 @@ class Scope:
 
 class ReviewApplicationDriftRequest:
 
-    def __init__(self, scope: Scope, action: str ='allow'):
+    def __init__(self, scope, action ='allow'):
         self.scope = scope
         self.action = action
 

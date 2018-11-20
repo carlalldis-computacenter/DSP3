@@ -1,4 +1,4 @@
-from suds import Client
+from suds.client import Client
 
 
 class IDFilter():

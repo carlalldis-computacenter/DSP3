@@ -5,7 +5,7 @@ about it.
 """
 
 import ssl
-from urllib.request import HTTPSHandler
+from six.moves.urllib.request import HTTPSHandler
 import suds.transport.http
 import urllib3
 

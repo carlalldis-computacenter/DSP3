@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import datetime
 import json
 import time
 
@@ -6,7 +6,7 @@ import requests
 
 class ModifyTrustedUpdateModeRequest:
 
-    def __init__(self, duration: int, enabled: bool):
+    def __init__(self, duration, enabled):
         self.duration = duration
         self.enabled = enabled
 

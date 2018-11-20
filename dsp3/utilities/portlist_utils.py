@@ -5,7 +5,7 @@ from typing import List
 from ..models.portlist import PortList
 
 
-def parse_port_lists(portlists) -> List[PortList]:
+def parse_port_lists(portlists):
     """
     Used to turn a list if PortListTransport objects received by DSM into PortList objects
 
