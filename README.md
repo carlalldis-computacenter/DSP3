@@ -1,13 +1,24 @@
 ![alt tag](/docs/source/_static/dsp3_logo3.png?raw=true "DSP3")
 
-DSP3
+DSP3-Python2
 ====
 [![Build Status](https://travis-ci.org/jeffthorne/DSP3.svg?branch=master)](https://travis-ci.org/jeffthorne/deep_security)
 
-A Python 3 compatible SDK for Trend Micro's Deep Security platform.
+A Python 2 compatible SDK for Trend Micro's Deep Security platform. Back-ported from Python 3 library: https://github.com/jeffthorne/DSP3
+
+## Python 2 Library Requirements
+certifi (https://pypi.org/project/certifi/)
+chardet (https://pypi.org/project/chardet/)
+idna (https://pypi.org/project/idna/)
+pytz  (https://pypi.org/project/pytz/)
+requests (https://github.com/requests/requests)
+suds (https://pypi.org/project/suds/)
+urllib3 (https://pypi.org/project/urllib3)
+six (https://pypi.org/project/six/)
+typing (https://pypi.org/project/typing/)
 
 ## Installation
-pip install -i https://testpypi.python.org/pypi dsp3
+Manual source extraction
 
 
 ## Documentation
