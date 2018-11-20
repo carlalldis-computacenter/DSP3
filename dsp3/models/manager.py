@@ -34,7 +34,7 @@ from ..models.dpi_rule_transport import DPIRuleTransport
 class Manager:
 
     def __init__(self, username: str, password: str, tenant=None, host: str ='app.deepsecurity.trendmicro.com',\
-                 port: int = "443", verify_ssl:bool = False, cacert_file:str = False):
+                 port: int = "443", verify_ssl:bool = False, cacert_file:str = False, proxy = None):
         """
 
         :param username:
@@ -44,6 +44,7 @@ class Manager:
         :param port:
         :param verify_ssl:
         :param cacert_file: optional CA certificates to trust for certificate verification
+        :param proxy: optional http/https proxy dictionary
         """
         kwargs = {}
         self._username = username
@@ -57,7 +58,7 @@ class Manager:
         url = self.config.soap_url()
         urllib3.disable_warnings()
 
-        kwargs['transport'] = get_https_transport(verify_ssl, cacert_file)
+        kwargs['transport'] = get_https_transport(verify_ssl, cacert_file, proxy)
 
         try:
             self.client = Client(url, **kwargs)
