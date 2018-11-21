@@ -61,12 +61,12 @@ class Manager:
 
         kwargs['transport'] = get_https_transport(verify_ssl, cacert_file, proxy, timeout)
 
-		self.client = Client(url, **kwargs)
+        self.client = Client(url, **kwargs)
 
-		if tenant:
-			self.session_id = self._authenticate_tenant()
-		else:
-			self.session_id = self.__authenticate()
+        if tenant:
+            self.session_id = self._authenticate_tenant()
+        else:
+            self.session_id = self.__authenticate()
 
     def __authenticate(self):
         return self.client.service.authenticate(username=self._username, password=self._password)
