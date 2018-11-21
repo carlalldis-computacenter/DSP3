@@ -61,23 +61,12 @@ class Manager:
 
         kwargs['transport'] = get_https_transport(verify_ssl, cacert_file, proxy, timeout)
 
-        try:
-            self.client = Client(url, **kwargs)
-        except ssl.CertificateError as ce:
-            print(ce)
-            sys.exit("could not verify ssl cert")
+		self.client = Client(url, **kwargs)
 
-        try:
-            if tenant:
-                self.session_id = self._authenticate_tenant()
-            else:
-                self.session_id = self.__authenticate()
-        except WebFault as detail:
-            print("Authentication error: ", detail)
-            sys.exit()
-        except Exception as e:
-            print("Generic error: ", e)
-            sys.exit()
+		if tenant:
+			self.session_id = self._authenticate_tenant()
+		else:
+			self.session_id = self.__authenticate()
 
     def __authenticate(self):
         return self.client.service.authenticate(username=self._username, password=self._password)
