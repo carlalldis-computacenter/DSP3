@@ -80,7 +80,7 @@ class HTTPSTransport(suds.transport.http.HttpTransport):
         return handlers
 
 
-def get_https_transport(verify_ssl, cacert_file, proxy):
+def get_https_transport(verify_ssl, cacert_file, proxy, timeout):
 
     ssl_context = None
 
@@ -91,4 +91,4 @@ def get_https_transport(verify_ssl, cacert_file, proxy):
     elif verify_ssl and cacert_file != False:
         ssl_context = create_ssl_context(True, cacert_file, None)
 
-    return HTTPSTransport(ssl_context, proxy=proxy)
+    return HTTPSTransport(ssl_context, proxy=proxy, timeout=timeout)
