@@ -10,6 +10,7 @@ import urllib3
 import ssl
 import sys
 import logging
+from suds import WebFault
 
 from suds.client import Client
 import requests
@@ -73,6 +74,9 @@ class Manager:
                 self.session_id = self.__authenticate()
         except WebFault as detail:
             print("Authentication error: ", detail)
+            sys.exit()
+        except Exception as e:
+            print("Generic error: ", e)
             sys.exit()
 
     def __authenticate(self):
